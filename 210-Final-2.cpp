@@ -26,6 +26,7 @@ struct Customer{
 // Used for Coffee Booth
 // Methods: push_back (add to end), pop_front (serve from front), print (output line of people)
 class LinkedList{
+    // I took the example from the doublelinked list from midterm 2 assignment.
     public: 
         LinkedList() { head = nullptr; tail = nullptr; } 
 
