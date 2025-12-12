@@ -149,7 +149,8 @@ int main(){
         if (!muff_line.empty()) {
             cout << "    Serving " << muff_line.front().name << ", Ordered: " << muff_line.front().good << endl;
             muff_line.pop_front();
-        } else {
+        } 
+        else {
             cout << "    Line is empty, no one served." << endl;
         }
         if(chance(50)){
@@ -171,7 +172,8 @@ int main(){
         if (!bracelet_line.empty()) {
             cout << "    Serving " << bracelet_line.front().name << ", Ordered: " << bracelet_line.front().good << endl;
             bracelet_line.erase(bracelet_line.begin());
-        } else {
+        } 
+        else {
             cout << "    Line is empty, no one served." << endl;
         }
         if(chance(50)){
@@ -192,7 +194,8 @@ int main(){
         if (!sticker_line.empty()) {
             cout << "    Serving " << sticker_line.top().name << ", Ordered: " << sticker_line.top().good << endl;
             sticker_line.pop();
-        } else {
+        } 
+        else {
             cout << "    Line is empty, no one served." << endl;
         }
         if(chance(50)){
@@ -244,6 +247,19 @@ int main(){
         for (auto& c : bracelet_line) {
             cout << "    " << c.name << ", Ordered: " << c.good << endl;
         }
+    }
+
+    cout << "\nStickers Booth:" << endl;
+    if (sticker_line.empty()) {
+        cout << "    Line is empty." << endl;
+    } 
+    else{
+        cout << "  Current line:" << endl;
+        stack<Customer> temp = sticker_line;
+            while(!temp.empty()){
+                cout << "    " << temp.top().name << ", Ordered: " << temp.top().good << endl;
+                temp.pop();
+            }
     }
 
     return 0;
