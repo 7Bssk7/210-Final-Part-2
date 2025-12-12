@@ -93,40 +93,42 @@ int main(){
     srand(time(0));
     vector<string> names {"Alice","Bob","Charlie","Diana","Ethan","Fiona","Ben","Nick","Bryan","Finn","Arkhip"};
     vector<string> drinks = {"Latte","Espresso","Mocha","Tea","Cappuccino","Americano"};
+    vector<string> muffins = {"Blueberry Muffin","Chocolate Muffin","Banana Muffin","Bran Muffin"};
 
-    LinkedList line; 
+    LinkedList coffee_line; 
+    deque<Customer> muff_line;
 
     //randomName(names)
     //randomDrink(drinks)
 
     for(int i = 0; i < LINE_SIZE; ++i ){
-        line.push_back(randomName(names),randomDrink(drinks));
+        coffee_line.push_back(randomName(names),randomDrink(drinks));
     }
 
     cout << " Coffe Booth Line simulation:" << endl;
     cout << " Initial Line: " << endl;
-    line.print();
+    coffee_line.print();
 
     for (int round = 1; round <= 10; ++round) {
         cout << "Round " << round << ":" << endl;
-        if (!line.empty()) {
-            line.pop_front();
+        if (!coffee_line.empty()) {
+            coffee_line.pop_front();
         } else {
             cout << "    Line is empty, no one served." << endl;
         }
 
         if(chance(50)){
-            line.push_back(randomName(names), randomDrink(drinks));
+            coffee_line.push_back(randomName(names), randomDrink(drinks));
         }
 
     }
 
     cout << " Line after simulation: " << endl;
-    if(line.empty()){
+    if(coffee_line.empty()){
         cout << "    Line is empty." << endl;
     }
     else{
-        line.print();
+        coffee_line.print();
     }
 
 
