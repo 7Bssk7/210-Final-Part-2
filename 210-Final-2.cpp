@@ -66,7 +66,6 @@ class LinkedList{
             cout << "    "<< current->name<< ", Ordered: " << current->drink << endl;
             current = current->next;
         }
-        cout << endl;
     }
 
     private: 
@@ -166,7 +165,7 @@ int main(){
         cout << "\nBracelet Booth:" << endl;
         if (!bracelet_line.empty()) {
             cout << "    Serving " << bracelet_line.front().name << ", Ordered: " << bracelet_line.front().good << endl;
-            bracelet_line.at(0);
+            bracelet_line.erase(bracelet_line.begin());
         } else {
             cout << "    Line is empty, no one served." << endl;
         }
@@ -198,7 +197,7 @@ int main(){
         coffee_line.print();
     }
 
-    cout << "\nBracelet Booth:" << endl;
+    cout << "\nMuffin Booth:" << endl;
     if (muff_line.empty()) {
             cout << "    Line is empty." << endl;
         } 
@@ -209,7 +208,7 @@ int main(){
         }
     }
 
-    cout << "\nMuffin Booth:" << endl;
+    cout << "\nBracelet Booth:" << endl;
     if (bracelet_line.empty()) {
             cout << "    Line is empty." << endl;
         } 
