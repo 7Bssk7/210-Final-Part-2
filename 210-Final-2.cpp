@@ -21,6 +21,19 @@ class LinkedList{
             }
         }
 
+        void print() {
+        Node* current = head;
+        if (!current) {
+            cout << "    Line is empty." << endl;
+            return;
+        }
+        while (current) {
+            cout << "        " << current->name<< ", Ordered: " << current->drink << endl;
+            current = current->next;
+        }
+        cout << endl;
+    }
+
     private: 
     struct Node {
         string name;
@@ -44,6 +57,8 @@ string randomDrink(const vector<string>& );
 int main(){
     vector<string> names {"Alice","Bob","Charlie","Diana","Ethan","Fiona"};
     vector<string> drinks = {"Latte","Espresso","Mocha","Tea","Cappuccino","Americano"};
+
+    LinkedList line; 
 
     return 0;
 }
