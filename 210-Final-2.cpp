@@ -197,14 +197,14 @@ int main(){
         }
         if(chance(50)){
             Customer nC (randomName(names), randomGood(friend_br));
-            bracelet_line.push_back(nC);
+            sticker_line.push(nC);
         }
-        if (bracelet_line.empty()) {
+        if (sticker_line.empty()) {
             cout << "    Line is empty." << endl;
         } 
         else {
             cout << "  Current line:" << endl;
-            for (auto& c : bracelet_line) {
+            for (auto& c : sticker_line) {
                 cout << "    " << c.name << ", Ordered: " << c.good << endl;
             }
         }
