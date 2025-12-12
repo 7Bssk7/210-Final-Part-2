@@ -6,6 +6,15 @@
 #include <ctime>
 using namespace std;
 
+struct Customer {
+    string name;
+    string drink;
+    Customer(string n = "", string d = "") {
+        name = n;
+        drink = d;
+    }
+};
+
 
 string randomName(const vector<string>& );
 string randomDrink(const vector<string>& );
@@ -14,10 +23,11 @@ int main(){
     vector<string> names {"Alice","Bob","Charlie","Diana","Ethan","Fiona"};
     vector<string> drinks = {"Latte","Espresso","Mocha","Tea","Cappuccino","Americano"};
 
-    cout << "Test" << randomName(names) << endl;
-    cout << "Test" << randomDrink(drinks) << endl;
+    //Test 
 
+    Customer test( randomName(names), randomDrink(drinks));
 
+    cout << test.name << " " << test.drink << endl;
 
 
     return 0;
