@@ -6,14 +6,6 @@
 #include <ctime>
 using namespace std;
 
-struct Customer {
-    string name;
-    string drink;
-    Customer(string n = "", string d = "") {
-        name = n;
-        drink = d;
-    }
-};
 
 class LinkedList{
     private: 
@@ -27,6 +19,11 @@ class LinkedList{
             next = nxt;
         }
     };
+
+    Node* head;
+    Node* tail;
+
+    public: 
 };
 
 
@@ -36,9 +33,6 @@ string randomDrink(const vector<string>& );
 int main(){
     vector<string> names {"Alice","Bob","Charlie","Diana","Ethan","Fiona"};
     vector<string> drinks = {"Latte","Espresso","Mocha","Tea","Cappuccino","Americano"};
-
-\
-
 
     return 0;
 }
