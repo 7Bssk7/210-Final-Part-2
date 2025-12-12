@@ -6,6 +6,7 @@
 #include <ctime>
 using namespace std;
 
+const int LINE_SIZE = 3;
 
 class LinkedList{
     public: 
@@ -59,6 +60,15 @@ int main(){
     vector<string> drinks = {"Latte","Espresso","Mocha","Tea","Cappuccino","Americano"};
 
     LinkedList line; 
+
+    //randomName(names)
+    //randomDrink(drinks)
+
+    for(int i = 0; i < LINE_SIZE; ++i ){
+        line.push_back(randomName(names),randomDrink(drinks));
+    }
+
+    line.print();
 
     return 0;
 }
