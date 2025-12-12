@@ -30,7 +30,7 @@ class LinkedList{
             }
             Node* temp = head;
             if (head->next) {
-                cout << " Serving " << temp->name << ", Ordered: " << temp->drink << endl;
+                cout << "    Serving " << temp->name << ", Ordered: " << temp->drink << endl;
                 head = head->next;
             }  
             else{
@@ -104,6 +104,18 @@ int main(){
             cout << "    Line is empty, no one served." << endl;
         }
 
+        if(chance(50)){
+            line.push_back(randomName(names), randomDrink(drinks));
+        }
+
+    }
+
+    cout << " Line after simulation: " << endl;
+    if(line.empty()){
+        cout << "    Line is empty." << endl;
+    }
+    else{
+        line.print();
     }
 
 
