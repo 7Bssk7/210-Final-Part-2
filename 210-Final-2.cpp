@@ -24,6 +24,16 @@ class LinkedList{
     Node* tail;
 
     public: 
+        void push_back(string n, string d) {
+            Node* newNode = new Node(n, d);
+            if (!tail) {
+                head = tail = newNode;
+            } else {
+                tail->next = newNode;
+                tail = newNode;
+            }
+        }
+    
 };
 
 
