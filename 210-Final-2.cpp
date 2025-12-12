@@ -10,6 +10,9 @@ using namespace std;
 
 const int LINE_SIZE = 3, SIMULATION = 10;
 
+// Customer struct has customers information
+// arguments: name (string), good (string)
+// used in all booth data structures, except for the linked list, since I built it into the linked list
 struct Customer{
     string name;
     string good;
@@ -19,6 +22,9 @@ struct Customer{
     }
 };
 
+// LinkedList class creates a forward linked list
+// Used for Coffee Booth
+// Methods: push_back (add to end), pop_front (serve from front), print (output line of people)
 class LinkedList{
     public: 
         LinkedList() { head = nullptr; tail = nullptr; } 
@@ -99,9 +105,13 @@ int main(){
     vector<string> friend_br = {"Red Bracelet","Blue Bracelet","Leather Bracelet","Green Bracelet","Yellow Bracelet"};
     vector<string> stickers = {"Anime Stickers","CS Stickers","Cartoon Stickers","Nature Stickers","Car Stickers"};
 
+    // LinkedList (FIFO)
     LinkedList coffee_line; 
+    // deque (double-ended queue, FIFO )
     deque<Customer> muff_line;
+    // vector (dynamic array)
     vector<Customer> bracelet_line;
+    // stack (LIFO, newest customer served first)
     stack<Customer> sticker_line; // I chose a stack data structure to use LIFO (Last-In, First-Out) in this project
 
 
@@ -122,13 +132,22 @@ int main(){
     cout << "\n Initial Coffee Line: " << endl;
     coffee_line.print();
     cout << "\nInitial Muffin Line:" << endl;
+    cout << "  Current line:" << endl;
     for (auto& c : muff_line) {
         cout << "    " << c.name << ", Ordered: " << c.good << endl;
     }
     cout << "\nInitial Bracelet Line:" << endl;
+    cout << "  Current line:" << endl;
     for (auto& c : bracelet_line) {
         cout << "    " << c.name << ", Ordered: " << c.good << endl;
     }
+    cout << "\n Initial Stickers Line: " << endl;
+    cout << "  Current line (top to bottom):" << endl;
+    stack<Customer> temp = sticker_line;
+    while(!temp.empty()){
+        cout << "    " << temp.top().name << ", Ordered: " << temp.top().good << endl;
+        temp.pop();
+    } 
 
     for (int round = 1; round <= 10; ++round) {
 
@@ -207,7 +226,7 @@ int main(){
             cout << "    Line is empty." << endl;
         } 
         else {
-            cout << "  Current line:" << endl;
+            cout << "  Current line (top to bottom):" << endl;
             stack<Customer> temp = sticker_line;
             while(!temp.empty()){
                 cout << "    " << temp.top().name << ", Ordered: " << temp.top().good << endl;
@@ -255,7 +274,7 @@ int main(){
         cout << "    Line is empty." << endl;
     } 
     else{
-        cout << "  Current line:" << endl;
+        cout << "  Current line (top to bottom):" << endl;
         stack<Customer> temp = sticker_line;
             while(!temp.empty()){
                 cout << "    " << temp.top().name << ", Ordered: " << temp.top().good << endl;
@@ -266,14 +285,23 @@ int main(){
     return 0;
 }
 
+// This functnion generates a random number and returns a name from vector of names with the index, which is a random generated number 
+// arguments: vector<string>& names
+// returns: a random name from the passed list
 string randomName(const vector<string>& names) {
     return names.at(rand() % names.size());
 }
 
+// This functnion generates a random number and returns a good from vector of good passed to the function with the index, which is a  random generated number 
+// arguments: vector<string>& good
+// returns: a random good from the passed list
 string randomGood(const vector<string>& good ){
     return good.at(rand() % good.size());
 }
 
+// This function checks if event occurs based on the given percent(p), for this project is only 50%
+//argument: int p (percent (50))
+//return: true if event occurs 
 bool chance(int p){
     int random = rand()% 100 + 1;
     return(random<=p);
