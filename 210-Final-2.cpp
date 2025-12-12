@@ -165,7 +165,6 @@ int main(){
                 cout << "    " << c.name << ", Ordered: " << c.good << endl;
             }
         }
-        cout << endl;
 
 
         cout << "\nBracelet Booth:" << endl;
@@ -188,7 +187,27 @@ int main(){
                 cout << "    " << c.name << ", Ordered: " << c.good << endl;
             }
         }
-        cout << endl;
+
+        cout << "\nStickers Booth:" << endl;
+        if (!sticker_line.empty()) {
+            cout << "    Serving " << sticker_line.top().name << ", Ordered: " << sticker_line.top().good << endl;
+            sticker_line.pop();
+        } else {
+            cout << "    Line is empty, no one served." << endl;
+        }
+        if(chance(50)){
+            Customer nC (randomName(names), randomGood(friend_br));
+            bracelet_line.push_back(nC);
+        }
+        if (bracelet_line.empty()) {
+            cout << "    Line is empty." << endl;
+        } 
+        else {
+            cout << "  Current line:" << endl;
+            for (auto& c : bracelet_line) {
+                cout << "    " << c.name << ", Ordered: " << c.good << endl;
+            }
+        }
         
 
     }
