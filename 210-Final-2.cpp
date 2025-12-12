@@ -99,3 +99,8 @@ string randomName(const vector<string>& names) {
 string randomDrink(const vector<string>& drinks ){
     return drinks.at(rand() % drinks.size());
 }
+
+bool chance(int p){
+    int random = rand()% 100 + 1;
+    return(random<=p);
+}
