@@ -92,7 +92,8 @@ bool chance(int p);
 
 int main(){
     srand(time(0));
-    vector<string> names {"Alice","Bob","Charlie","Diana","Ethan","Fiona","Ben","Nick","Bryan","Finn","Arkhip"};
+    vector<string> names {"Alice","Bob","Charlie","Diana","Ethan","Fiona","Ben","Nick","Bryan","Finn","Arkhip","John","Emily","Michael","Sasha","David","Jessica","Daniel","Laura","James","Emma",
+    "Matthew","Hannah","Andrew","Rachel","Chris","Joseph","Ashley"};
     vector<string> drinks = {"Latte","Espresso","Mocha","Tea","Cappuccino","Americano"};
     vector<string> muffins = {"Blueberry Muffin","Chocolate Muffin","Banana Muffin","Bran Muffin"};
     vector<string> friend_br = {"Red Bracelet","Blue Bracelet","Leather Bracelet","Green Bracelet","Yellow Bracelet"};
@@ -113,7 +114,7 @@ int main(){
         muff_line.push_back(c_m);
         Customer c_b (randomName(names), randomGood(friend_br));
         bracelet_line.push_back(c_b);
-        Customer c_s (randomName(names), randomGood(friend_br));
+        Customer c_s (randomName(names), randomGood(stickers));
         sticker_line.push(c_s);
     }
 
@@ -199,7 +200,7 @@ int main(){
             cout << "    Line is empty, no one served." << endl;
         }
         if(chance(50)){
-            Customer nC (randomName(names), randomGood(friend_br));
+            Customer nC (randomName(names), randomGood(stickers));
             sticker_line.push(nC);
         }
         if (sticker_line.empty()) {
