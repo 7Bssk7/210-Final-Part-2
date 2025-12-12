@@ -62,6 +62,7 @@ class LinkedList{
             return;
         }
         while (current) {
+            cout << "    Current line:" << endl;
             cout << "    "<< current->name<< ", Ordered: " << current->drink << endl;
             current = current->next;
         }
@@ -103,7 +104,8 @@ int main(){
 
     for(int i = 0; i < LINE_SIZE; ++i ){
         coffee_line.push_back(randomName(names),randomGood(drinks));
-        muff_line.push_back(Customer(randomName(names), randomGood(muffins)));
+        Customer c (randomName(names), randomGood(muffins));
+        muff_line.push_back(c);
     }
 
     cout << " Line simulation:" << endl;
@@ -141,12 +143,24 @@ int main(){
             Customer nC (randomName(names), randomGood(muffins));
             muff_line.push_back(nC);
         }
-        coffee_line.print();
+        if (muff_line.empty()) {
+            cout << "    Line is empty." << endl;
+        } 
+        else {
+            for (auto& c : muff_line) {
+                cout << "    Current line:" << endl;
+                cout << "    " << c.name << ", Ordered: " << c.good << endl;
+            }
+        }
+        cout << endl;
+
         
 
     }
 
-    cout << " Line after simulation: " << endl;
+    cout << "Lines after simulation: " << endl;
+
+    cout << "\nCoffee Booth:" << endl;
     if(coffee_line.empty()){
         cout << "    Line is empty." << endl;
     }
@@ -154,6 +168,16 @@ int main(){
         coffee_line.print();
     }
 
+    cout << "\nMuffin Booth:" << endl;
+    if (muff_line.empty()) {
+            cout << "    Line is empty." << endl;
+        } 
+    else {
+        for (auto& c : muff_line) {
+            cout << "    Current line:" << endl;
+            cout << "    " << c.name << ", Ordered: " << c.good << endl;
+        }
+    }
 
     return 0;
 }
@@ -162,8 +186,8 @@ string randomName(const vector<string>& names) {
     return names.at(rand() % names.size());
 }
 
-string randomGood(const vector<string>& drinks ){
-    return drinks.at(rand() % drinks.size());
+string randomGood(const vector<string>& good ){
+    return good.at(rand() % good.size());
 }
 
 bool chance(int p){
