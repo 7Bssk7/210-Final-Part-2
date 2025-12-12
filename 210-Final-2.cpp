@@ -4,9 +4,19 @@
 #include <vector>
 #include <string>
 #include <ctime>
+#include <deque>
 using namespace std;
 
 const int LINE_SIZE = 3, SIMULATION = 10;
+
+struct Customer{
+    string name;
+    string good;
+    Customer(string n, string g){
+        name = n;
+        good = g;
+    }
+};
 
 class LinkedList{
     public: 
