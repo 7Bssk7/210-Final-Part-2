@@ -204,15 +204,17 @@ int main(){
         } 
         else {
             cout << "  Current line:" << endl;
-            for (auto& c : sticker_line) {
-                cout << "    " << c.name << ", Ordered: " << c.good << endl;
+            stack<Customer> temp = sticker_line;
+            while(!temp.empty()){
+                cout << "    " << temp.top().name << ", Ordered: " << temp.top().good << endl;
+                temp.pop();
             }
         }
         
 
     }
 
-    cout << "Lines after simulation: " << endl;
+    cout << "\nLines after simulation: " << endl;
 
     cout << "\nCoffee Booth:" << endl;
     if(coffee_line.empty()){
