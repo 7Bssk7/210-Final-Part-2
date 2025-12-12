@@ -8,6 +8,19 @@ using namespace std;
 
 
 class LinkedList{
+    public: 
+        LinkedList() { head = nullptr; tail = nullptr; } 
+
+        void push_back(string n, string d) {
+            Node* newNode = new Node(n, d);
+            if (!tail) {
+                head = tail = newNode;
+            } else {
+                tail->next = newNode;
+                tail = newNode;
+            }
+        }
+
     private: 
     struct Node {
         string name;
@@ -21,19 +34,7 @@ class LinkedList{
     };
 
     Node* head;
-    Node* tail;
-
-    public: 
-        void push_back(string n, string d) {
-            Node* newNode = new Node(n, d);
-            if (!tail) {
-                head = tail = newNode;
-            } else {
-                tail->next = newNode;
-                tail = newNode;
-            }
-        }
-    
+    Node* tail;    
 };
 
 
