@@ -155,13 +155,35 @@ int main(){
             cout << "    Line is empty." << endl;
         } 
         else {
+            cout << "  Current line:" << endl;
             for (auto& c : muff_line) {
-                cout << "    Current line:" << endl;
                 cout << "    " << c.name << ", Ordered: " << c.good << endl;
             }
         }
         cout << endl;
 
+
+        cout << "\nBracelet Booth:" << endl;
+        if (!bracelet_line.empty()) {
+            cout << "    Serving " << bracelet_line.front().name << ", Ordered: " << bracelet_line.front().good << endl;
+            bracelet_line.at(0);
+        } else {
+            cout << "    Line is empty, no one served." << endl;
+        }
+        if(chance(50)){
+            Customer nC (randomName(names), randomGood(friend_br));
+            bracelet_line.push_back(nC);
+        }
+        if (bracelet_line.empty()) {
+            cout << "    Line is empty." << endl;
+        } 
+        else {
+            cout << "  Current line:" << endl;
+            for (auto& c : bracelet_line) {
+                cout << "    " << c.name << ", Ordered: " << c.good << endl;
+            }
+        }
+        cout << endl;
         
 
     }
