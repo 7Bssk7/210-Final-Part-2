@@ -198,13 +198,24 @@ int main(){
         coffee_line.print();
     }
 
-    cout << "\nMuffin Booth:" << endl;
+    cout << "\nBracelet Booth:" << endl;
     if (muff_line.empty()) {
             cout << "    Line is empty." << endl;
         } 
     else {
+        cout << "  Current line:" << endl;
         for (auto& c : muff_line) {
-            cout << "    Current line:" << endl;
+            cout << "    " << c.name << ", Ordered: " << c.good << endl;
+        }
+    }
+
+    cout << "\nMuffin Booth:" << endl;
+    if (bracelet_line.empty()) {
+            cout << "    Line is empty." << endl;
+        } 
+    else {
+        cout << "  Current line:" << endl;
+        for (auto& c : bracelet_line) {
             cout << "    " << c.name << ", Ordered: " << c.good << endl;
         }
     }
