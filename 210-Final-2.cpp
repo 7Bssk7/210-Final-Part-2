@@ -101,6 +101,7 @@ int main(){
     LinkedList coffee_line; 
     deque<Customer> muff_line;
     vector<Customer> bracelet_line;
+    stack<Customer> sticker_line; // I chose a stack data structure to use LIFO (Last-In, First-Out) in this project
 
 
     //randomName(names)
@@ -112,6 +113,8 @@ int main(){
         muff_line.push_back(c_m);
         Customer c_b (randomName(names), randomGood(friend_br));
         bracelet_line.push_back(c_b);
+        Customer c_s (randomName(names), randomGood(friend_br));
+        sticker_line.push(c_s);
     }
 
     cout << " Lines simulation:" << endl;
