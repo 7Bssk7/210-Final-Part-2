@@ -61,8 +61,8 @@ class LinkedList{
             cout <<"    Line is empty, no one served." << endl;
             return;
         }
+        cout << "  Current line:" << endl;
         while (current) {
-            cout << "    Current line:" << endl;
             cout << "    "<< current->name<< ", Ordered: " << current->drink << endl;
             current = current->next;
         }
@@ -106,15 +106,21 @@ int main(){
 
     for(int i = 0; i < LINE_SIZE; ++i ){
         coffee_line.push_back(randomName(names),randomGood(drinks));
-        Customer c (randomName(names), randomGood(muffins));
-        muff_line.push_back(c);
+        Customer c_m (randomName(names), randomGood(muffins));
+        muff_line.push_back(c_m);
+        Customer c_b (randomName(names), randomGood(friend_br));
+        bracelet_line.push_back(c_b);
     }
 
-    cout << " Line simulation:" << endl;
-    cout << " Initial Coffee Line: " << endl;
+    cout << " Lines simulation:" << endl;
+    cout << "\n Initial Coffee Line: " << endl;
     coffee_line.print();
-    cout << "Initial Muffin Line:" << endl;
+    cout << "\nInitial Muffin Line:" << endl;
     for (auto& c : muff_line) {
+        cout << "    " << c.name << ", Ordered: " << c.good << endl;
+    }
+    cout << "\nInitial Bracelet Line:" << endl;
+    for (auto& c : bracelet_line) {
         cout << "    " << c.name << ", Ordered: " << c.good << endl;
     }
 
