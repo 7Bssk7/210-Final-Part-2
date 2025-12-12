@@ -58,7 +58,7 @@ class LinkedList{
         void print() {
         Node* current = head;
         if (!current) {
-            cout <<"    Line is empty." << endl;
+            cout <<"    Line is empty, no one served." << endl;
             return;
         }
         while (current) {
@@ -106,8 +106,8 @@ int main(){
         muff_line.push_back(Customer(randomName(names), randomGood(muffins)));
     }
 
-    cout << " Coffe Booth Line simulation:" << endl;
-    cout << " Initial Line: " << endl;
+    cout << " Line simulation:" << endl;
+    cout << " Initial Coffee Line: " << endl;
     coffee_line.print();
     cout << "Initial Muffin Line:" << endl;
     for (auto& c : muff_line) {
@@ -115,26 +115,34 @@ int main(){
     }
 
     for (int round = 1; round <= 10; ++round) {
-        cout << "Round " << round << ":" << endl;
-        cout << "Coffee Booth:" << endl;
+
+        cout << "\nRound " << round << ":" << endl;
+
+
+        cout << "\nCoffee Booth:" << endl;
         if (!coffee_line.empty()) {
             coffee_line.pop_front();
-        } else {
-            cout << "    Line is empty, no one served." << endl;
         }
-
         if(chance(50)){
             coffee_line.push_back(randomName(names), randomGood(drinks));
         }
         coffee_line.print();
 
-        cout << "Muffin Booth:" << endl;
+
+
+        cout << "\nMuffin Booth:" << endl;
         if (!muff_line.empty()) {
             cout << "    Serving " << muff_line.front().name << ", Ordered: " << muff_line.front().good << endl;
             muff_line.pop_front();
         } else {
             cout << "    Line is empty, no one served." << endl;
         }
+        if(chance(50)){
+            Customer nC (randomName(names), randomGood(muffins));
+            muff_line.push_back(nC);
+        }
+        coffee_line.print();
+        
 
     }
 
