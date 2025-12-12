@@ -22,6 +22,13 @@ class LinkedList{
             }
         }
 
+        void pop_front(){
+            if(!head){
+                cout << "    Line is empty, no one served." << endl;
+            }
+            
+        } 
+
         void print() {
         Node* current = head;
         if (!current) {
