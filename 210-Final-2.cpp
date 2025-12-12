@@ -95,9 +95,11 @@ int main(){
     vector<string> names {"Alice","Bob","Charlie","Diana","Ethan","Fiona","Ben","Nick","Bryan","Finn","Arkhip"};
     vector<string> drinks = {"Latte","Espresso","Mocha","Tea","Cappuccino","Americano"};
     vector<string> muffins = {"Blueberry Muffin","Chocolate Muffin","Banana Muffin","Bran Muffin"};
+    vector<string> friend_br = {"Red Bracelet","Blue Bracelet","Leather Bracelet","Green Bracelet","Yellow Bracelet"};
 
     LinkedList coffee_line; 
     deque<Customer> muff_line;
+    vector<Customer> bracelet_line;
 
     //randomName(names)
     //randomDrink(drinks)
