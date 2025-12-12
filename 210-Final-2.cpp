@@ -98,6 +98,11 @@ int main(){
 
     for (int round = 1; round <= 10; ++round) {
         cout << "Round " << round << ":" << endl;
+        if (!line.empty()) {
+            line.pop_front();
+        } else {
+            cout << "    Line is empty, no one served." << endl;
+        }
 
     }
 
