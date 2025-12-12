@@ -15,6 +15,20 @@ struct Customer {
     }
 };
 
+class LinkedList{
+    private: 
+    struct Node {
+        string name;
+        string drink;
+        Node *next;
+        Node(string n, string d, Node* nxt = nullptr){
+            name = n;
+            drink = d;
+            next = nxt;
+        }
+    };
+};
+
 
 string randomName(const vector<string>& );
 string randomDrink(const vector<string>& );
@@ -23,11 +37,7 @@ int main(){
     vector<string> names {"Alice","Bob","Charlie","Diana","Ethan","Fiona"};
     vector<string> drinks = {"Latte","Espresso","Mocha","Tea","Cappuccino","Americano"};
 
-    //Test 
-
-    Customer test( randomName(names), randomDrink(drinks));
-
-    cout << test.name << " " << test.drink << endl;
+\
 
 
     return 0;
