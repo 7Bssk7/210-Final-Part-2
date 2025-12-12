@@ -41,6 +41,10 @@ class LinkedList{
             
         } 
 
+        bool empty(){
+            return head == nullptr;
+        }
+
         void print() {
         Node* current = head;
         if (!current) {
@@ -91,6 +95,11 @@ int main(){
     cout << " Coffe Booth Line simulation:" << endl;
     cout << " Initial Line: " << endl;
     line.print();
+
+    for (int round = 1; round <= 10; ++round) {
+        cout << "Round " << round << ":" << endl;
+
+    }
 
 
     return 0;
