@@ -80,7 +80,7 @@ string randomDrink(const vector<string>& );
 bool chance(int p);
 
 int main(){
-    srand(0);
+    srand(time(0));
     vector<string> names {"Alice","Bob","Charlie","Diana","Ethan","Fiona","Ben","Nick","Bryan","Finn","Arkhip"};
     vector<string> drinks = {"Latte","Espresso","Mocha","Tea","Cappuccino","Americano"};
 
