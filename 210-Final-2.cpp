@@ -25,7 +25,18 @@ class LinkedList{
         void pop_front(){
             if(!head){
                 cout << "    Line is empty, no one served." << endl;
+                return;
             }
+            Node* temp = head;
+            if (head->next) {
+                cout << " Serving " << temp->name << ", Ordered: " << temp->drink << endl;
+                head = head->next;
+            }  
+            else{
+                head = tail = nullptr;
+            }
+
+            delete temp;
             
         } 
 
@@ -61,6 +72,7 @@ class LinkedList{
 
 string randomName(const vector<string>& );
 string randomDrink(const vector<string>& );
+bool chance(int p);
 
 int main(){
     vector<string> names {"Alice","Bob","Charlie","Diana","Ethan","Fiona"};
