@@ -58,11 +58,11 @@ class LinkedList{
         void print() {
         Node* current = head;
         if (!current) {
-            cout << "    Line is empty." << endl;
+            cout <<"    Line is empty." << endl;
             return;
         }
         while (current) {
-            cout << "        " << current->name<< ", Ordered: " << current->drink << endl;
+            cout << "    "<< current->name<< ", Ordered: " << current->drink << endl;
             current = current->next;
         }
         cout << endl;
@@ -86,7 +86,7 @@ class LinkedList{
 
 
 string randomName(const vector<string>& );
-string randomDrink(const vector<string>& );
+string randomGood(const vector<string>& );
 bool chance(int p);
 
 int main(){
@@ -102,15 +102,21 @@ int main(){
     //randomDrink(drinks)
 
     for(int i = 0; i < LINE_SIZE; ++i ){
-        coffee_line.push_back(randomName(names),randomDrink(drinks));
+        coffee_line.push_back(randomName(names),randomGood(drinks));
+        muff_line.push_back(Customer(randomName(names), randomGood(muffins)));
     }
 
     cout << " Coffe Booth Line simulation:" << endl;
     cout << " Initial Line: " << endl;
     coffee_line.print();
+    cout << "Initial Muffin Line:" << endl;
+    for (auto& c : muff_line) {
+        cout << "    " << c.name << ", Ordered: " << c.good << endl;
+    }
 
     for (int round = 1; round <= 10; ++round) {
         cout << "Round " << round << ":" << endl;
+        cout << "Coffee Booth:" << endl;
         if (!coffee_line.empty()) {
             coffee_line.pop_front();
         } else {
@@ -118,7 +124,16 @@ int main(){
         }
 
         if(chance(50)){
-            coffee_line.push_back(randomName(names), randomDrink(drinks));
+            coffee_line.push_back(randomName(names), randomGood(drinks));
+        }
+        coffee_line.print();
+
+        cout << "Muffin Booth:" << endl;
+        if (!muff_line.empty()) {
+            cout << "    Serving " << muff_line.front().name << ", Ordered: " << muff_line.front().good << endl;
+            muff_line.pop_front();
+        } else {
+            cout << "    Line is empty, no one served." << endl;
         }
 
     }
@@ -139,7 +154,7 @@ string randomName(const vector<string>& names) {
     return names.at(rand() % names.size());
 }
 
-string randomDrink(const vector<string>& drinks ){
+string randomGood(const vector<string>& drinks ){
     return drinks.at(rand() % drinks.size());
 }
 
