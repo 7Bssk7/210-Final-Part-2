@@ -29,8 +29,8 @@ class LinkedList{
                 return;
             }
             Node* temp = head;
+            cout << "    Serving " << temp->name << ", Ordered: " << temp->drink << endl;
             if (head->next) {
-                cout << "    Serving " << temp->name << ", Ordered: " << temp->drink << endl;
                 head = head->next;
             }  
             else{
@@ -80,6 +80,7 @@ string randomDrink(const vector<string>& );
 bool chance(int p);
 
 int main(){
+    srand(0);
     vector<string> names {"Alice","Bob","Charlie","Diana","Ethan","Fiona","Ben","Nick","Bryan","Finn","Arkhip"};
     vector<string> drinks = {"Latte","Espresso","Mocha","Tea","Cappuccino","Americano"};
 
